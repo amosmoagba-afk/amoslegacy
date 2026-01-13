@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | AmosLegacy</title>
+</head>
+<style>
+/* AmosLegacy - Bold Creative Studio Theme */
+:root {
+    --primary: #FF6B35;
+    --secondary: #004E89;
+    --dark: #1A1A2E;
+    --light: #FEFEFE;
+    --accent: #F4A261;
+    --gray: #94A3B8;
+    --card-bg: #16213E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary);
+}
+
+.logo { 
+    font-size: 2rem; 
+    font-weight: 900; 
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 40px;
+}
+
+nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul li a::before {
+    content: '>';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    left: -20px;
+    opacity: 1;
+}
+
+nav ul li a:hover, 
+nav ul li a.active { 
+    color: var(--primary);
+}
+
+/* MAIN CONTENT */
+.container { 
+    padding: 100px 8%; 
+    text-align: center; 
+}
+
+.services-intro {
+    margin-bottom: 80px;
+}
+
+h1 { 
+    font-size: 4rem; 
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--light);
+}
+
+p { 
+    color: var(--gray);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* GRID LAYOUT */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+}
+
+/* CARD COMPONENT */
+.card {
+    background: var(--card-bg);
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: left;
+    transition: all 0.4s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    opacity: 0;
+    border-radius: 20px;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.card:hover::before {
+    opacity: 0.1;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--primary);
+}
+
+.card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ICON STYLING */
+.icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    transition: all 0.4s ease;
+}
+
+.card:hover .icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+/* PROCESS SECTION */
+.process {
+    margin: 100px 0;
+    padding: 80px 60px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: 2px solid var(--primary);
+}
+
+.process h2 {
+    margin-bottom: 30px;
+}
+
+.process p {
+    margin-bottom: 40px;
+    font-size: 1.15rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.step {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 107, 53, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    background: rgba(255, 107, 53, 0.1);
+    transform: scale(1.05);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 auto 20px;
+}
+
+.step h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--light);
+}
+
+.step p {
+    font-size: 0.95rem;
+    color: var(--gray);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--primary);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary);
+    margin-top: 20px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 60px 8%;
+    background: var(--dark);
+    border-top: 2px solid var(--primary);
+    color: var(--gray);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 1rem 5%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 60px 5%;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process {
+        padding: 50px 30px;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">AmosLegacy</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="services-intro">
+            <h1>Our Services</h1>
+            <p>Comprehensive web development solutions tailored to elevate your digital presence.</p>
+        </header>
+
+        <div class="grid">
+            <!-- 1. Custom Web Design -->
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Custom Web Design</h3>
+                <p>Stunning, user-centric designs that perfectly align with your brand identity. We create visual experiences that captivate and convert visitors into loyal customers.</p>
+            </div>
+
+            <!-- 2. Full-Stack Development -->
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Full-Stack Development</h3>
+                <p>From frontend to backend, we build robust, scalable websites using modern frameworks like React, Node.js, and more. Lightning-fast performance guaranteed.</p>
+            </div>
+
+            <!-- 3. E-Commerce Solutions -->
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>E-Commerce Solutions</h3>
+                <p>Complete online store development with secure payment integration, inventory management, and seamless checkout experiences that maximize your sales.</p>
+            </div>
+
+            <!-- 4. Mobile-First Design -->
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Responsive Design</h3>
+                <p>Perfect experiences on every device. Your website will look stunning and function flawlessly on smartphones, tablets, and desktops.</p>
+            </div>
+
+            <!-- 5. SEO & Performance -->
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>SEO Optimization</h3>
+                <p>Get found on Google with strategic SEO implementation. We optimize site speed, structure, and content to drive organic traffic and boost rankings.</p>
+            </div>
+
+            <!-- 6. Maintenance & Support -->
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>Ongoing Support</h3>
+                <p>24/7 maintenance, security updates, and technical support. We keep your website running smoothly so you can focus on your business.</p>
+            </div>
+        </div>
+
+        <section class="process">
+            <h2>Our Development Process</h2>
+            <p>A proven methodology that delivers exceptional results, every time.</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery</h4>
+                    <p>We learn about your goals, audience, and vision</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Design</h4>
+                    <p>Create mockups and prototypes for your approval</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Develop</h4>
+                    <p>Build your website with clean, efficient code</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Test</h4>
+                    <p>Rigorous testing across all devices and browsers</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Launch</h4>
+                    <p>Deploy your site and celebrate your success</p>
+                </div>
+            </div>
+            
+            <a href="contact.html" class="btn">Start Your Project</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AmosLegacy. Crafting digital legacies, one website at a time.</p>
+    </footer>
+</body>
+</html>

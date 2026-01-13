@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | AmosLegacy</title>
+</head>
+<style>
+/* AmosLegacy - Bold Creative Studio Theme */
+:root {
+    --primary: #FF6B35;
+    --secondary: #004E89;
+    --dark: #1A1A2E;
+    --light: #FEFEFE;
+    --accent: #F4A261;
+    --gray: #94A3B8;
+    --card-bg: #16213E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary);
+}
+
+.logo { 
+    font-size: 2rem; 
+    font-weight: 900; 
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 40px;
+}
+
+nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul li a::before {
+    content: '>';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    left: -20px;
+    opacity: 1;
+}
+
+nav ul li a:hover, 
+nav ul li a.active { 
+    color: var(--primary);
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 100px 8% 60px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--card-bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1), transparent 70%);
+    top: -150px;
+    right: -150px;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+h1 { 
+    font-size: 4.5rem; 
+    font-weight: 900;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+}
+
+/* TIMELINE SECTION */
+.timeline-section {
+    padding: 80px 8%;
+    background: var(--dark);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 80px;
+    position: relative;
+    align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    width: 45%;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.timeline-content:hover {
+    border-color: var(--primary);
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+}
+
+.timeline-number {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    border: 5px solid var(--dark);
+    z-index: 10;
+}
+
+.timeline-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--light);
+}
+
+.timeline-content p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-content ul li {
+    color: var(--gray);
+    font-size: 1rem;
+    padding: 8px 0;
+    padding-left: 30px;
+    position: relative;
+}
+
+.timeline-content ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* DURATION BADGE */
+.duration {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.2);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* CTA SECTION */
+.cta-section {
+    padding: 100px 8%;
+    background: linear-gradient(135deg, var(--card-bg), var(--dark));
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    color: var(--gray);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 20px 50px;
+    background: var(--primary);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary);
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(255, 107, 53, 0.5);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 60px 8%;
+    background: var(--dark);
+    border-top: 2px solid var(--primary);
+    color: var(--gray);
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 100px;
+    }
+    
+    .timeline-content {
+        width: 100%;
+    }
+    
+    .timeline-number {
+        left: 30px;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 1rem 5%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero {
+        padding: 60px 5% 40px;
+    }
+    
+    .timeline-section {
+        padding: 60px 5%;
+    }
+    
+    .timeline-item {
+        padding-left: 80px;
+    }
+    
+    .timeline-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        left: 20px;
+    }
+    
+    .timeline-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-section {
+        padding: 80px 5%;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">AmosLegacy</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="process.html" class="active">Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Our Process</h1>
+        <p>A transparent, collaborative approach that transforms your vision into a digital masterpiece. Here's exactly how we work together to create your legendary website.</p>
+    </section>
+
+    <section class="timeline-section">
+        <div class="timeline">
+            
+            <!-- Step 1 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Discovery & Strategy</h2>
+                    <p>We start by diving deep into your business, goals, and target audience. This phase is all about understanding your vision and setting clear objectives.</p>
+                    <ul>
+                        <li>Initial consultation and goal setting</li>
+                        <li>Competitor and market research</li>
+                        <li>Target audience analysis</li>
+                        <li>Project scope and timeline definition</li>
+                    </ul>
+                    <span class="duration">1-2 Weeks</span>
+                </div>
+                <div class="timeline-number">1</div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Design & Prototyping</h2>
+                    <p>Our designers create stunning mockups and interactive prototypes that bring your brand to life. You'll see exactly how your site will look before we write a single line of code.</p>
+                    <ul>
+                        <li>Wireframing and site architecture</li>
+                        <li>Visual design and branding</li>
+                        <li>Interactive prototypes</li>
+                        <li>Client feedback and revisions</li>
+                    </ul>
+                    <span class="duration">2-3 Weeks</span>
+                </div>
+                <div class="timeline-number">2</div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Development</h2>
+                    <p>This is where the magic happens. Our developers build your website using cutting-edge technologies, ensuring it's fast, secure, and scalable.</p>
+                    <ul>
+                        <li>Frontend development (HTML, CSS, JavaScript)</li>
+                        <li>Backend development and database setup</li>
+                        <li>Content management system integration</li>
+                        <li>API integrations and custom features</li>
+                    </ul>
+                    <span class="duration">3-6 Weeks</span>
+                </div>
+                <div class="timeline-number">3</div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Testing & Quality Assurance</h2>
+                    <p>We rigorously test every aspect of your website to ensure flawless performance across all devices and browsers. Nothing goes live until it's perfect.</p>
+                    <ul>
+                        <li>Cross-browser compatibility testing</li>
+                        <li>Mobile responsiveness verification</li>
+                        <li>Performance and speed optimization</li>
+                        <li>Security audits and bug fixes</li>
+                    </ul>
+                    <span class="duration">1-2 Weeks</span>
+                </div>
+                <div class="timeline-number">4</div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Launch & Deployment</h2>
+                    <p>Your website goes live! We handle all the technical details of deployment and ensure a smooth transition from development to production.</p>
+                    <ul>
+                        <li>Final client review and approval</li>
+                        <li>Domain and hosting setup</li>
+                        <li>SEO optimization and analytics setup</li>
+                        <li>Official website launch</li>
+                    </ul>
+                    <span class="duration">1 Week</span>
+                </div>
+                <div class="timeline-number">5</div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Support & Maintenance</h2>
+                    <p>Our partnership doesn't end at launch. We provide ongoing support, updates, and optimization to keep your website performing at its best.</p>
+                    <ul>
+                        <li>24/7 technical support</li>
+                        <li>Regular security updates</li>
+                        <li>Performance monitoring and optimization</li>
+                        <li>Content updates and feature enhancements</li>
+                    </ul>
+                    <span class="duration">Ongoing</span>
+                </div>
+                <div class="timeline-number">6</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Let's build something legendary together. Our proven process ensures your project is delivered on time, on budget, and beyond expectations.</p>
+        <a href="contact.html" class="btn">Start Your Project</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AmosLegacy. Crafting digital legacies, one website at a time.</p>
+    </footer>
+</body>
+</html>

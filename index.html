@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmosLegacy | Crafting Digital Experiences</title>
+</head>
+<style>
+/* AmosLegacy - Bold Creative Studio Theme */
+:root {
+    --primary: #FF6B35;
+    --secondary: #004E89;
+    --dark: #1A1A2E;
+    --light: #FEFEFE;
+    --accent: #F4A261;
+    --gray: #94A3B8;
+    --card-bg: #16213E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary);
+}
+
+.logo { 
+    font-size: 2rem; 
+    font-weight: 900; 
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.logo:hover {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 40px;
+}
+
+nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul li a::before {
+    content: '>';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    left: -20px;
+    opacity: 1;
+}
+
+nav ul li a:hover, 
+nav ul li a.active { 
+    color: var(--primary);
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px 8%;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--card-bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.15), transparent 70%);
+    top: -200px;
+    right: -200px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 78, 137, 0.15), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero h1 { 
+    font-size: 5rem; 
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.highlight {
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--primary);
+    opacity: 0.3;
+    z-index: -1;
+    animation: expand 1s ease-out 0.5s both;
+}
+
+@keyframes expand {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.hero p { 
+    color: var(--gray);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    animation: slideInLeft 1s ease-out 0.2s both;
+}
+
+/* BUTTON */
+.btn-group {
+    display: flex;
+    gap: 20px;
+    animation: slideInLeft 1s ease-out 0.4s both;
+}
+
+.btn {
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--primary);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--light);
+}
+
+.btn-secondary:hover {
+    background: var(--light);
+    color: var(--dark);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* SERVICES SECTION */
+.services {
+    padding: 120px 8%;
+    background: var(--dark);
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.services .subtitle {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.2rem;
+    margin-bottom: 80px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: left;
+    transition: all 0.4s ease;
+    position: relative;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    opacity: 0;
+    border-radius: 20px;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.card:hover::before {
+    opacity: 0.1;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--primary);
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    transition: all 0.4s ease;
+}
+
+.card:hover .icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+.card h3 { 
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--light);
+}
+
+.card p {
+    color: var(--gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* STATS SECTION */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 100px 8%;
+    background: linear-gradient(135deg, var(--card-bg), var(--dark));
+    gap: 60px;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.stat-item h2 {
+    font-size: 5rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+.stat-item p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 60px 8%;
+    background: var(--dark);
+    border-top: 2px solid var(--primary);
+    color: var(--gray);
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 1rem 5%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero {
+        min-height: 70vh;
+        padding: 60px 5%;
+    }
+    
+    .services {
+        padding: 80px 5%;
+    }
+    
+    .services h2 {
+        font-size: 2.5rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        padding: 80px 5%;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">AmosLegacy</div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>We Build <span class="highlight">Legendary</span> Websites</h1>
+            <p>AmosLegacy is a creative web development studio that transforms ideas into stunning digital experiences. We craft websites that don't just exist—they inspire, engage, and convert.</p>
+            <div class="btn-group">
+                <a href="contact.html" class="btn">Start Your Project</a>
+                <a href="portfolio.html" class="btn btn-secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>What We Create</h2>
+        <p class="subtitle">Full-stack solutions for modern businesses</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Custom Web Design</h3>
+                <p>Pixel-perfect designs that capture your brand's essence and create unforgettable first impressions.</p>
+            </div>
+            
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Web Development</h3>
+                <p>Lightning-fast, responsive websites built with cutting-edge technologies and best practices.</p>
+            </div>
+            
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>E-Commerce Solutions</h3>
+                <p>Powerful online stores that turn visitors into customers and maximize your revenue.</p>
+            </div>
+            
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Mobile-First Approach</h3>
+                <p>Seamless experiences across all devices—from smartphones to desktops.</p>
+            </div>
+            
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>Maintenance & Support</h3>
+                <p>Ongoing support to keep your website running smoothly, securely, and up-to-date.</p>
+            </div>
+            
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>SEO Optimization</h3>
+                <p>Get found online with strategic SEO that drives organic traffic and grows your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <h2>150+</h2>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-item">
+            <h2>98%</h2>
+            <p>Client Satisfaction</p>
+        </div>
+        <div class="stat-item">
+            <h2>24/7</h2>
+            <p>Support Available</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AmosLegacy. Crafting digital legacies, one website at a time.</p>
+    </footer>
+</body>
+</html>
